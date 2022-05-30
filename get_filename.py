@@ -9,12 +9,12 @@ def get_b(i):
     soup = BeautifulSoup(req.content, 'html.parser')
     trs = soup.findAll('tr')[3:]
     row = trs[i]
-    return row.findAll('a')
+    return row.find('a')
 
 def get_filename(url):
 
   # your code here
-  filename = url + '/' + str(get_b(5)).split('>')[1].split('<')[0]
+  filename = url + '/' + get_b(5).contents[0]
 
   return filename
 
